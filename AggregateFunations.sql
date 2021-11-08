@@ -35,3 +35,24 @@ GROUP BY movie_lang,age_certificate;
 SELECT movie_lang , MIN(movie_length) , MAX(movie_length) FROM movies
 WHERE age_certificate = '15'
 GROUP BY movie_lang;
+
+                      /* Having */
+
+SELECT movie_lang , COUNT(movie_lang) FROM movies
+GROUP BY movie_lang
+HAVING COUNT(movie_lang) > 1;
+/*where count(movie_labg) > 1 will gives you a error*/
+/*you cannot use agg function with where clause*/
+/*you can use where and having in same query*/
+SELECT movie_lang , COUNT(movie_lang) FROM movies
+where movie_length > 120
+GROUP BY movie_lang
+HAVING COUNT(movie_lang) > 1;
+
+                        /* Mathematical Expressions */
+                        /* + - / * % */
+SELECT movie_id , (domestic_takings + international_takings) AS total_takings FROM movie_reveneues;
+SELECT movie_id , (domestic_takings - international_takings) AS total_takings FROM movie_reveneues;
+SELECT movie_id , (domestic_takings * international_takings) AS total_takings FROM movie_reveneues;
+SELECT movie_id , (domestic_takings / international_takings) AS total_takings FROM movie_reveneues;
+SELECT movie_id , (domestic_takings % international_takings) AS total_takings FROM movie_reveneues;
