@@ -53,3 +53,45 @@ WHERE mr.domestic_takings IS NOT NULL
 GROUP BY d.first_name , d.last_name
 ORDER BY total_dom_takings domestic_takings
 LIMIT 1;
+
+
+                          /* UNION */
+
+SELECT first_name, last_name FROM directors
+UNION
+SELECT first_name, last_name FROM actors;
+/*you need to select same number of columns for both tables and the datattypes shoule be same for coresponding columns*/
+SELECT first_name, last_name FROM directors
+WHERE nationality = 'American'
+/*ORDER BY first_name; if you use order by after 1 st table it does not guarantee that result will right*/
+UNION
+SELECT first_name, last_name FROM actors
+WHERE gender = 'F'
+ORDER BY first_name;
+
+                          /* UNION ALL*/
+
+SELECT first_name, last_name FROM directors
+UNION ALL
+SELECT first_name, last_name FROM actors;
+/*Union remove the duplicates values but Union ALl does not*/
+
+                          /*INTERSECT*/
+
+SELECT first_name from directors
+INTERSECT
+SELECT first_name FROM actors;
+/*its returns only the first names, values which are found in both the director's table and the actors table.*/
+
+                          /*Except*/
+SELECT first_name from directors
+EXCEPT
+SELECT first_name FROM actors;
+
+SELECT first_name from directors
+WHERE nationality = 'American'
+EXCEPT
+SELECT first_name FROM actors;
+/*So unlike Union and Intersect, except doesn't return any data from table two at all, and it only returns
+
+data from table one if it's not returned by table two.*/
