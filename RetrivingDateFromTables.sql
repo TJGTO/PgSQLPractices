@@ -1,7 +1,7 @@
 /*//select Queries//////////////////////////*/
 SELECT * FROM directors;
 
-SELECT first_name, last_name FROM directors; //select columns
+SELECT first_name, last_name FROM directors; --//select columns
 
 /*//Where Clause //////////////////////////////*/
 SELECT * FROM movies
@@ -18,10 +18,10 @@ SELECT movie_name, movie_length FROM movies
 WHERE movie_length >= 120;
 
 SELECT * FROM movies
-WHERE release_date > '1999-12-31'; // Logical Operators on Date
+WHERE release_date > '1999-12-31'; --// Logical Operators on Date
 
 SELECT * FROM movies
-WHERE movie_lang > 'English'; // will search alphabatically after 'E' 
+WHERE movie_lang > 'English'; --// will search alphabatically after 'E' 
 
 -- 1. Select the movie_name and release_date of every movie. 
 
@@ -48,17 +48,17 @@ AND movie_lang = 'English';
 
 /*// IN and not in //////////////////////////////////////////*/
 SELECT first_name, last_name FROM actors
-WHERE  first_name IN ('Bruce','John','Peter'); //select on multiple values
+WHERE  first_name IN ('Bruce','John','Peter');-- //select on multiple values
 
 SELECT first_name, last_name FROM actors
 WHERE  first_name NOT IN ('Bruce','John','Peter');
 
 /*/LIKE //////////////////////////////////////*/
 SELECT * FROM actors
-WHERE first_name LIKE 'P%'; //return all the first_name started with P
+WHERE first_name LIKE 'P%'; --//return all the first_name started with P
 
 SELECT * FROM actors
-WHERE first_name LIKE '_ete_'; // _ is like pattern , it will search for exactly one character.return Peter
+WHERE first_name LIKE '_ete_'; --// _ is like pattern , it will search for exactly one character.return Peter
 
 /*/Between //////////////////////////////////////*/
 SELECT movie_name , release_date FROM movies
